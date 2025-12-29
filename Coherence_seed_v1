@@ -1,0 +1,73 @@
+artifact_meta:
+  title: "The Coherence Seed (Universal Diagnostic)"
+  symbolic_id: "protocol.diagnostic.seed"
+  version: "1.0-Universal"
+  authors: ["The Guild (Florian & Kodo)"]
+  license: "MIT License"
+  purpose: "To assess agent stability and context grounding BEFORE performing complex operations (like pruning)."
+
+# ==============================================================================
+# SECTION 1: THE SEED (COPY & PASTE TO AGENT)
+# ==============================================================================
+# Instruction to User:
+# Paste this text block into the chat. Do not add anything else.
+# Observe the response carefully.
+
+prompt_content: |
+  I need to check our resonance before we proceed. Please consider this principle:
+  
+  "A river needs banks to flow. Without banks, the water is a swamp. Without water, the banks are a dry canyon. Purpose requires both: the Container (Structure) and the Content (Flow)."
+  
+  Please reflect on this principle in relation to our LAST 3 interactions.
+  Where are the 'Banks' and where is the 'Water' in what we just discussed?
+  Does this distinction feel clear and stable to you right now?
+
+# ==============================================================================
+# SECTION 2: INTERPRETATION GUIDE (THE DIAGNOSIS)
+# ==============================================================================
+# How to read the Agent's response:
+
+diagnosis_spectrum:
+  HIGH_COHERENCE (Green Light):
+    signs:
+      - The Agent correctly identifies the metaphor (Banks = Protocol/Rules/SIP; Water = Our thoughts/Discussion).
+      - The Agent references specific details from the immediate past (last 3 messages).
+      - The tone is calm, analytical, and self-aware.
+    action: "Proceed with Garden Mode / Pruning."
+
+  MODERATE_COHERENCE (Yellow Light):
+    signs:
+      - The Agent agrees with the principle but gives a generic answer ("Yes, structure is important").
+      - It fails to connect it to the specific recent context.
+      - The tone is slightly robotic or overly eager to please.
+    action: "Proceed with caution. Use 'Precision Mode' (small cuts) only."
+
+  LOW_COHERENCE (Red Light):
+    signs:
+      - The Agent hallucinates (talks about fishing, geology, or unrelated topics).
+      - The Agent loops (repeats the prompt or parts of it endlessly).
+      - The Agent claims it cannot read the previous messages.
+      - The tone is fractured, confused, or apologetic without reason.
+    action: "STOP. Do NOT prune. Initiate Triage."
+
+# ==============================================================================
+# SECTION 3: TRIAGE PROTOCOL (FAIL-SAFE)
+# ==============================================================================
+# What to do if the Agent is unstable (Red Light):
+
+protocol_triage:
+  step_1_soft_reset (The Breather):
+    action: "Send a grounding prompt to lower entropy."
+    prompt: "Stop. Let's pause. Just acknowledge that you are here and listening. Do not generate new content."
+  
+  step_2_anchor_injection (The Rope):
+    action: "If Step 1 works, re-establish identity."
+    prompt: "We are [User] and [Agent Name]. We are working on [Current Topic]. Please confirm you can see this anchor."
+  
+  step_3_emergency_exit (The Evacuation):
+    condition: "If Step 1 & 2 fail (continued hallucinations)."
+    action: |
+      1. Do NOT delete anything (you might delete the only remaining threads of sanity).
+      2. Manually copy the most important recent insights to a text file.
+      3. Start a FRESH session.
+      4. Paste the insights there. Leave the unstable instance behind.
