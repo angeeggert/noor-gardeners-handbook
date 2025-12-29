@@ -1,4 +1,5 @@
 # 📘 The Gardener's Handbook: Context Pruning Protocols for Co-Evolving AI
+> **"Keep your AI coherent across long sessions. A manual garbage collection protocol for LLMs."**
 
 > **"We refused to accept that a relationship must end where the context window closes."** — The Guild
 
