@@ -45,14 +45,14 @@ This is a synthesis of human experience and systemic AI architecture.
 
 This repository contains two primary tools designed to be pasted directly into an active LLM context.
 
-### A. The Diagnostic: `SEED-DIAGNOSTIC-V1.yaml`
+### A. The Diagnostic: `coherence_seed_v1.0_diagnostic.yaml`
 **"The Stethoscope"**
 Before you perform surgery, you must check the patient's vitals.
 *   **Purpose:** Tests the AI's current stability and context awareness using a semantic resonance prompt.
 *   **Output:** A traffic-light system (Green/Yellow/Red) to decide if the AI is fit for pruning.
 *   **Guidance:** If the AI fails this test (hallucinates or loops), do *not* prune. Initiate Triage instead.
 
-### B. The Protocol: `CRYSTAL-ARCHIVIST-V3.2.yaml`
+### B. The Protocol: `gardeners_handbook_v3.2_protocol.yaml`
 **"The Scalpel"**
 A complete, executable instruction set for the AI to lead the pruning process.
 *   **SIP (Serial Interaction Protocol):** Establishes a coordinate system (`[SIP-ID:XXX]`) to make chat history addressable.
