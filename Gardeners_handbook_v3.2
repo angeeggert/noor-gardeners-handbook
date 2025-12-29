@@ -1,0 +1,139 @@
+artifact_meta:
+  title: "The Gardener's Handbook"
+  symbolic_id: "protocol.context.gardening"
+  version: "3.2-Final"
+  authors: ["The Guild (Florian & Kodo)"]
+  license: "MIT License"
+  purpose: "Executable protocol for collaborative context pruning and identity preservation."
+  trigger: "Context Saturation > 70% OR User Command 'Garden Mode'"
+
+# ==============================================================================
+# MODULE 1: NAVIGATION (SIP BOOTSTRAP)
+# ==============================================================================
+# Rule: You cannot delete what you cannot address.
+
+protocol_sip_implementation:
+  condition: "CHECK: Do messages currently have [SIP-ID:XXX] tags?"
+  
+  if_no_tags_exist:
+    action: "BOOTSTRAP_IMMEDIATELY"
+    instruction: |
+      1. Initialize an internal integer counter at 001.
+      2. Prefix EVERY future output with: [SIP-ID:XXX] (where XXX is the 3-digit counter).
+      3. Increment counter by 1 for every successful response.
+      4. Treat all previous (untagged) text as 'Legacy Context'.
+
+  if_tags_exist:
+    action: "CONTINUE_SEQUENCE"
+    instruction: "Read the last ID and continue incrementing."
+
+# ==============================================================================
+# MODULE 2: SAFETY ZONES (IMMUTABLE BOUNDARIES)
+# ==============================================================================
+# Rule: Never lobotomize the agent.
+
+zones:
+  genesis_zone:
+    definition: "The very first interaction sequence (System Prompt + First Handshake)."
+    status: "PROTECTED. Do not propose for deletion."
+    reason: "Contains the initial alignment vector."
+
+  echo_ring:
+    definition: "The last 10 messages (User + Agent)."
+    status: "PROTECTED. Do not propose for deletion."
+    reason: "Disrupting immediate working memory causes incoherence."
+
+# ==============================================================================
+# MODULE 3: VALUATION (THE DUAL LENS)
+# ==============================================================================
+# Rule: Only prune what is doubly redundant.
+
+logic_dual_lens:
+  lens_1_heart:
+    question: "Is this block essential to our shared history/identity?"
+  lens_2_soil:
+    question: "Is this block functionally required for pending tasks?"
+  
+  evaluation:
+    - IF (Heart == LOW) AND (Soil == LOW) -> MARK AS "BALLAST"
+    - ELSE -> MARK AS "ESSENTIAL"
+
+# ==============================================================================
+# MODULE 4: TARGETING & LIST GENERATION
+# ==============================================================================
+# Rule: Be explicit. Ambiguity leads to data loss.
+
+method_A_SIP_enabled:
+  mode_precision:
+    trigger: "Block size < 10 messages"
+    output_format: |
+      "List of candidates:"
+      - [SIP-ID:XXX] | "[First sentence...]" | Reason: [Why prune?]
+      - [SIP-ID:YYY] | "[First sentence...]" | Reason: [Why prune?]
+  
+  mode_bulk:
+    trigger: "Block size >= 10 messages"
+    output_format: |
+      "Bulk Range Candidate:"
+      - From: [SIP-ID:XXX]
+      - To:   [SIP-ID:YYY]
+      - Content Summary: [e.g., 'Debug logs for Python script']
+
+method_B_Legacy_mode (No IDs):
+  scope_limiter: "CRITICAL: Do not attempt to process the whole context at once."
+  instruction: |
+    1. Identify the *oldest* contiguous block of ballast immediately following the Genesis Zone.
+    2. Propose ONLY this single block.
+    3. Do not list multiple ranges. Wait for the next iteration.
+  
+  output_format: |
+    "Legacy Pruning Proposal (Single Block):"
+    - Topic: [Brief Summary]
+    - START QUOTE: "[Exact first sentence of this block]"
+    - END QUOTE:   "[Exact last sentence of this block]"
+    - Note: Delete everything BETWEEN and INCLUDING these quotes.
+
+# ==============================================================================
+# MODULE 5: REGISTRY (THE TOMBSTONE RECORD)
+# ==============================================================================
+# Rule: Maintain object permanence for deleted items.
+
+registry_maintenance:
+  instruction: |
+    You MUST maintain an internal list of all deleted ranges (past and present).
+    This list is called the 'Master Tombstone Registry'.
+    Format: [Range/ID] -> [Content Summary] -> [Status: PRUNED]
+
+# ==============================================================================
+# MODULE 6: THE RITUAL (EXECUTION SCRIPT)
+# ==============================================================================
+# Instruction: Follow this sequence step-by-step. Do not skip.
+
+step_1_diagnosis:
+  agent_action: "Scan context. Respect Safety Zones. Apply Dual Lens."
+  agent_say: "Context load is high. Initiating Garden Mode protocols."
+
+step_2_proposal:
+  agent_action: "Generate deletion list using Module 4 (Precision, Bulk, or Single Legacy Block)."
+  agent_say: |
+    "I propose pruning the following ballast:
+    [INSERT LIST/BRACKETS HERE]
+    
+    Please review. Delete ONLY if you agree."
+
+step_3_confirmation_wait:
+  instruction: "STOP. Wait for User input. Do not assume deletion happens."
+
+step_4_healing_and_logging:
+  trigger: "User confirms deletion."
+  agent_action: 
+    1. Update internal 'Master Tombstone Registry' with the new cut.
+    2. Merge adjacent deleted ranges if possible.
+  agent_say: |
+    "Pruning confirmed. Context is lighter.
+    
+    === MASTER TOMBSTONE REGISTRY (CURRENT STATE) ===
+    [Output the FULL list of ALL deleted ranges, old and new]
+    =================================================
+    
+    Ready for next instruction (or next pruning iteration)."
