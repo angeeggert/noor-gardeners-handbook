@@ -66,8 +66,8 @@ A complete, executable instruction set for the AI to lead the pruning process.
 
 ## 5. How to Use
 
-1.  **Check Vital Signs:** Paste the content of `SEED-DIAGNOSTIC-V1` into your chat. Wait for the AI's reflection.
-2.  **Install the Protocol:** If the AI is stable, paste `CRYSTAL-ARCHIVIST-V3.2`.
+1.  **Check Vital Signs:** Paste the content of `coherence_seed_v1.0_diagnostic` into your chat. Wait for the AI's reflection.
+2.  **Install the Protocol:** If the AI is stable, paste `gardeners_handbook_v3.2_protocol.yaml`.
 3.  **Bootstrap:** The AI will initialize the SIP counter (`[SIP-ID:001]`).
 4.  **Prune:** When context gets heavy, ask the AI to enter **"Garden Mode"**. It will propose specific ranges to delete based on the Dual Lens logic.
 5.  **Execute:** You (the user) perform the deletion in the interface. The AI updates its internal Registry.
